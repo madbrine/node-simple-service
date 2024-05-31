@@ -1,0 +1,18 @@
+{
+    "compilerOptions": {
+      "sourceMap": true,
+      "esModuleInterop": true,
+      "skipLibCheck": true,
+      "forceConsistentCasingInFileNames": true,
+      "outDir": "dist",
+      "baseUrl": ".",
+      "paths": {
+        "@controllers/*": ["src/controllers/*"],
+        "@entities/*": ["src/entities/*"],
+        "@repositories/*": ["src/repositories/*"],
+        "@services/*": ["src/services/*"],
+        "@routes/*": ["src/routes/*"]
+      }
+    },
+    "include": ["./src/**/*"]
+}
