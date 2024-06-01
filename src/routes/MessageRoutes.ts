@@ -1,5 +1,6 @@
 import { Router } from 'express';
 import MessageController from '@controllers/MessageController';
+import { container } from 'tsyringe';
 
 export default class MessageRoutes {
   public router: Router;
@@ -7,7 +8,7 @@ export default class MessageRoutes {
 
   constructor() {
     this.router = Router();
-    this.messageController = new MessageController();
+    this.messageController = container.resolve(MessageController);
     this.initializeRoutes();
   }
 

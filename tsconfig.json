@@ -3,11 +3,17 @@
     "require": ["tsconfig-paths/register"]
   },
     "compilerOptions": {
-      "sourceMap": true,
+      "target": "ES6",
+      "module": "commonjs",
+      "moduleResolution": "node",
+      "experimentalDecorators": true,
+      "emitDecoratorMetadata": true,
       "esModuleInterop": true,
       "skipLibCheck": true,
+      "strict": true,
       "forceConsistentCasingInFileNames": true,
       "outDir": "dist",
+      "sourceMap": true,
       "baseUrl": ".",
       "paths": {
         "@controllers/*": ["src/controllers/*"],
@@ -17,5 +23,6 @@
         "@routes/*": ["src/routes/*"]
       }
     },
-    "include": ["./src"]
+    "include": ["./src"],
+    "exclude": ["node_modules"]
 }

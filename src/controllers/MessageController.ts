@@ -1,12 +1,12 @@
 import { Request, Response } from 'express';
-import { MessageService } from '@services/MessageService';
+import { IMessageRepository } from '@repositories/IMessageRepository';
+import { inject, injectable } from 'tsyringe';
 
+@injectable()
 export default class MessageController {
-  private messageService: MessageService;
-
-  constructor() {
-    this.messageService = new MessageService();
-  }
+  constructor(
+    @inject("IMessageRepository") private messageRepository: IMessageRepository
+  ) {}
 
   /**
    * @swagger
@@ -39,7 +39,7 @@ export default class MessageController {
    */
   public getMessage(req: Request, res: Response): void {
     const id = req.params.id;
-    const message = this.messageService.getMessage(id);
+    const message = this.messageRepository.getMessage(id);
     if (message) {
       res.json(message);
     } else {
@@ -80,7 +80,7 @@ export default class MessageController {
    */
   public createMessage(req: Request, res: Response): void {
     const { text } = req.body;
-    const message = this.messageService.createMessage(text);
+    const message = this.messageRepository.createMessage(text);
     res.status(201).json(message);
   }
 

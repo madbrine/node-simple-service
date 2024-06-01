@@ -1,7 +1,9 @@
 import { IMessageRepository } from '@repositories/IMessageRepository';
 import { MessageEntity } from '@entities/MessageEntity';
 import { v4 as uuidv4 } from 'uuid';
+import { injectable } from 'tsyringe';
 
+@injectable()
 export class MessageService implements IMessageRepository {
   private messages: MessageEntity[] = [];
 
