@@ -14,8 +14,8 @@ export default class MessageRoutes {
 
   private initializeRoutes() {
     this.router.get('/message/:id', this.messageController.getMessage.bind(this.messageController));
+    this.router.get('/messages', this.messageController.getAllMessages.bind(this.messageController)); // New route
     this.router.post('/message', this.messageController.createMessage.bind(this.messageController));
-    this.router.get('/greet', this.messageController.greet.bind(this.messageController));
   }
 
   public getRouter(): Router {
